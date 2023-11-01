@@ -1,3 +1,3 @@
 # portfolio
 
-visit my portfolio : https://sahoodcode.github.io/portfolio/
+visit my portfolio : https://sahood-dev.github.io/portfolio/
