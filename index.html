@@ -5,34 +5,140 @@
       rel="icon"
       type="image/x-icon"
       href="https://i.pinimg.com/originals/0d/dc/ca/0ddccae723d85a703b798a5e682c23c1.png"
-      §
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#547c74">
-    <title>Sahood</title>
+
+    <!-- Primary Meta Tags -->
+    <title>Sahood - Software Developer</title>
+    <meta name="title" content="Sahood - Portfolio & CV | Software Developer" />
+    <meta
+      name="description"
+      content="Sahood's professional portfolio and CV. Software developer showcasing skills, experience, and projects. Contact for opportunities."
+    />
+    <meta
+      name="keywords"
+      content="sahood, sahood cv, saho, portfolio, software developer, developer, programmer, cv, resume, web developer"
+    />
+    <meta name="author" content="Sahood" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sahood.dev/" />
+    <meta
+      property="og:title"
+      content="Sahood - Portfolio & CV | Software Developer"
+    />
+    <meta
+      property="og:description"
+      content="Sahood's professional portfolio and CV. Software developer showcasing skills, experience, and projects."
+    />
+    <meta
+      property="og:image"
+      content="https://sahood.dev/images/sahood-pro.jpg"
+    />
+    <meta property="og:site_name" content="Sahood Portfolio" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://sahood.dev/" />
+    <meta
+      property="twitter:title"
+      content="Sahood - Portfolio & CV | Software Developer"
+    />
+    <meta
+      property="twitter:description"
+      content="Sahood's professional portfolio and CV. Software developer showcasing skills, experience, and projects."
+    />
+    <meta
+      property="twitter:image"
+      content="https://sahood.dev/images/sahood-pro.jpg"
+    />
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#547c74" />
+    <meta name="msapplication-TileColor" content="#547c74" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Sahood Portfolio" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sahood.dev/" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="./manifest.json" />
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="//i.pinimg.com" />
+
     <link rel="stylesheet" href="./index.css" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sahood",
+        "alternateName": ["Saho", "Sahood CV"],
+        "url": "https://sahood.dev",
+        "image": "https://sahood.dev/images/sahood-pro.jpg",
+        "description": "Software developer and programmer showcasing professional portfolio and CV",
+        "jobTitle": "Software Developer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Freelance"
+        },
+        "sameAs": ["https://github.com/sa-od"],
+        "knowsAbout": [
+          "Software Development",
+          "Web Development",
+          "Programming",
+          "Portfolio Development"
+        ]
+      }
+    </script>
   </head>
   <body>
-    <div class="container">
-      <!-- First Section: Image -->
-      <div class="section image-section">
+    <main class="container">
+      <!-- Hero Section with Professional Image -->
+      <section
+        class="section image-section"
+        aria-label="Sahood Professional Photo"
+      >
         <div class="image-parent">
-          <img src="./images/IMG_0314.jpeg" alt="sahood-pro" />
+          <img
+            src="./images/IMG_0314.jpeg"
+            alt="Sahood - Software Developer and Programmer Professional Photo"
+            title="Sahood Professional Portfolio"
+            loading="eager"
+            width="400"
+            height="600"
+          />
         </div>
-      </div>
+      </section>
 
-      <!-- Second Section: Text Message -->
-      <div class="section text-section">
+      <!-- Professional Information Section -->
+      <section
+        class="section text-section"
+        aria-label="Sahood Professional Information"
+      >
         <div class="text">
           <h1>Hello, I'm Sah🐝🐝d</h1>
           <p>i think I am done here.</p>
           <p>bye 👋👋.</p>
         </div>
-        <div class="footer">
-          <p>&#169; Designed and Develped by Sahood :)</p>
-        </div>
-      </div>
-    </div>
+        <footer class="footer">
+          <p>&#169; Designed and Developed by <strong>Sahood</strong> :)</p>
+        </footer>
+      </section>
+    </main>
   </body>
 </html>

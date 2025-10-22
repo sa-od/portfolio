@@ -1,0 +1,21 @@
+{
+  "name": "Sahood Portfolio",
+  "short_name": "Sahood",
+  "description": "Sahood's professional portfolio and CV - Software Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#547c74",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://i.pinimg.com/originals/0d/dc/ca/0ddccae723d85a703b798a5e682c23c1.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "cv", "professional"],
+  "lang": "en",
+  "dir": "ltr"
+}
