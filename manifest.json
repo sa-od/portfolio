@@ -2,10 +2,10 @@
   "name": "Sahood Portfolio",
   "short_name": "Sahood",
   "description": "Sahood's professional portfolio and CV - Software Developer",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#547c74",
+  "background_color": "#fdfbfa",
+  "theme_color": "#ff4438",
   "orientation": "portrait-primary",
   "icons": [
     {
