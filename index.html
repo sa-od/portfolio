@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html lang="en" style="scroll-behavior: smooth">
+<!doctype html>
+<html lang="en">
   <head>
     <link rel="icon" type="image/jpeg" href="./images/logo.jpg" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Primary Meta Tags -->
     <title>Sahood - Software Developer</title>
@@ -19,7 +19,6 @@
     <meta name="author" content="Sahood" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
-    <meta name="revisit-after" content="7 days" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -56,10 +55,8 @@
     />
 
     <!-- Additional SEO Meta Tags -->
-    <meta name="theme-color" content="#547c74" />
-    <meta name="msapplication-TileColor" content="#547c74" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="theme-color" content="#fdfbfa" />
+    <meta name="msapplication-TileColor" content="#ff4438" />
     <meta name="apple-mobile-web-app-title" content="Sahood Portfolio" />
 
     <!-- Canonical URL -->
@@ -67,15 +64,6 @@
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="./manifest.json" />
-
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- DNS Prefetch for external resources -->
-    <link rel="dns-prefetch" href="//i.pinimg.com" />
-
-    <link rel="stylesheet" href="./index.css" />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -101,40 +89,634 @@
         ]
       }
     </script>
+
+    <script src="./support.js"></script>
   </head>
   <body>
-    <main class="container">
-      <!-- Hero Section with Professional Image -->
-      <section
-        class="section image-section"
-        aria-label="Sahood Professional Photo"
+    <x-dc>
+      <helmet>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin=""
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap"
+          rel="stylesheet"
+        />
+        <style>
+          html {
+            -webkit-text-size-adjust: 100%;
+          }
+          body {
+            margin: 0;
+            background: #fdfbfa;
+            color: #2a2624;
+            font-family: "IBM Plex Sans", system-ui, sans-serif;
+          }
+          a {
+            color: #2a2624;
+            text-decoration: none;
+          }
+          a:hover {
+            color: #ff4438;
+          }
+          html {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+          }
+          html::-webkit-scrollbar,
+          body::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            display: none;
+          }
+          ::selection {
+            background: #ffe4e1;
+            color: #ff4438;
+          }
+          @media (hover: hover) and (pointer: fine) {
+            html,
+            body,
+            a,
+            button,
+            input,
+            textarea,
+            select,
+            [role="button"],
+            * {
+              cursor: none !important;
+            }
+          }
+        </style>
+      </helmet>
+      <div
+        ref="{{ cursorRef }}"
+        aria-hidden="true"
+        style="
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 12px;
+          height: 12px;
+          background: #ff4438;
+          pointer-events: none;
+          z-index: 2147483647;
+          opacity: 0;
+          transform: translate3d(-100px, -100px, 0);
+          transition:
+            opacity 160ms linear,
+            background-color 160ms ease;
+        "
+      ></div>
+      <div
+        ref="{{ trailRef }}"
+        aria-hidden="true"
+        style="
+          position: fixed;
+          right: 22px;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          z-index: 20;
+          pointer-events: none;
+        "
       >
-        <div class="image-parent">
-          <img
-            src="./images/IMG_0314.jpeg"
-            alt="Sahood - Software Developer and Programmer Professional Photo"
-            title="Sahood Professional Portfolio"
-            loading="eager"
-            width="400"
-            height="600"
-          />
-        </div>
-      </section>
+        <sc-for list="{{ trail }}" as="i" hint-placeholder-count="26">
+          <span
+            data-trail=""
+            style="width: 6px; height: 6px; background: #ffe4e1"
+          ></span>
+        </sc-for>
+      </div>
+      <main
+        style="
+          max-width: 720px;
+          margin: 0 auto;
+          padding: 12vh 28px 18vh;
+          box-sizing: border-box;
+        "
+      >
+        <header style="margin-bottom: 17vh; position: relative; width: 100%">
+          <h1
+            aria-label="Sahood"
+            style="margin: 0; font-size: 0; line-height: 0"
+          >
+            <canvas
+              ref="{{ nameCanvas }}"
+              style="
+                display: block;
+                width: 100%;
+                max-width: 520px;
+                height: auto;
+              "
+            ></canvas>
+          </h1>
+        </header>
 
-      <!-- Professional Information Section -->
-      <section
-        class="section text-section"
-        aria-label="Sahood Professional Information"
-      >
-        <div class="text">
-          <h1>Hello, I'm Sah🐝🐝d</h1>
-          <p>i think I am done here.</p>
-          <p>bye 👋👋.</p>
-        </div>
-        <footer class="footer">
-          <p>&#169; Designed and Developed by <strong>Sahood</strong> :)</p>
-        </footer>
-      </section>
-    </main>
+        <section style="margin-bottom: 15vh">
+          <p
+            style="
+              font-size: clamp(18px, 2.3vw, 21px);
+              line-height: 1.65;
+              max-width: 34em;
+              margin: 0;
+              text-wrap: pretty;
+              color: #37312e;
+            "
+          >
+            I build things — mostly B2B tools and clean user flows. Lately I've
+            been pulled into AI agents, figuring out how they actually fit into
+            real products.
+          </p>
+        </section>
+
+        <section style="margin-bottom: 15vh">
+          <h2
+            style="
+              font-family: &quot;JetBrains Mono&quot;, ui-monospace, monospace;
+              font-size: 12.5px;
+              font-weight: 500;
+              letter-spacing: 0.18em;
+              text-transform: uppercase;
+              color: #1f1b19;
+              margin: 0 0 44px;
+            "
+          >
+            Experience
+          </h2>
+
+          <div style="display: flex; flex-direction: column; gap: 40px">
+            <div style="display: flex; flex-direction: column; gap: 10px">
+              <div
+                style="
+                  display: flex;
+                  flex-wrap: wrap;
+                  align-items: baseline;
+                  gap: 12px;
+                "
+              >
+                <a
+                  href="https://appsfinal.com/"
+                  target="_blank"
+                  rel="noopener"
+                  style="
+                    font-family:
+                      &quot;Space Mono&quot;, &quot;JetBrains Mono&quot;,
+                      ui-monospace, monospace;
+                    font-size: 17.5px;
+                    font-weight: 700;
+                    letter-spacing: -0.01em;
+                    color: #ff4438;
+                    padding-bottom: 2px;
+                    border-bottom: 1px solid #ffe4e1;
+                  "
+                  style-hover="color: #1f1b19; border-bottom-color: #1f1b19;"
+                  >Final Apps</a
+                >
+                <span
+                  style="
+                    font-family:
+                      &quot;JetBrains Mono&quot;, ui-monospace, monospace;
+                    font-size: 12.5px;
+                    color: #8b837e;
+                  "
+                  >~3.5 years</span
+                >
+              </div>
+              <p
+                style="
+                  margin: 0;
+                  font-size: 16.5px;
+                  line-height: 1.6;
+                  color: #6e6763;
+                "
+              >
+                Junior Developer → Senior Developer → CTO
+              </p>
+              <p
+                style="
+                  margin: 0;
+                  font-size: 17px;
+                  line-height: 1.65;
+                  max-width: 34em;
+                  color: #37312e;
+                  text-wrap: pretty;
+                "
+              >
+                Built and shipped 6+ Shopify apps, including two Built for
+                Shopify certified.
+              </p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px">
+              <div
+                style="
+                  display: flex;
+                  flex-wrap: wrap;
+                  align-items: baseline;
+                  gap: 12px;
+                "
+              >
+                <a
+                  href="https://checkout-ninja.com/"
+                  target="_blank"
+                  rel="noopener"
+                  style="
+                    font-family:
+                      &quot;Space Mono&quot;, &quot;JetBrains Mono&quot;,
+                      ui-monospace, monospace;
+                    font-size: 17.5px;
+                    font-weight: 700;
+                    letter-spacing: -0.01em;
+                    color: #ff4438;
+                    padding-bottom: 2px;
+                    border-bottom: 1px solid #ffe4e1;
+                  "
+                  style-hover="color: #1f1b19; border-bottom-color: #1f1b19;"
+                  >Checkout Ninja</a
+                >
+                <span
+                  style="
+                    font-family:
+                      &quot;JetBrains Mono&quot;, ui-monospace, monospace;
+                    font-size: 12.5px;
+                    color: #8b837e;
+                  "
+                  >Current</span
+                >
+              </div>
+              <p
+                style="
+                  margin: 0;
+                  font-size: 17px;
+                  line-height: 1.65;
+                  max-width: 34em;
+                  color: #37312e;
+                  text-wrap: pretty;
+                "
+              >
+                Building checkout tooling for Shopify merchants.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section style="margin-bottom: 15vh">
+          <h2
+            style="
+              font-family: &quot;JetBrains Mono&quot;, ui-monospace, monospace;
+              font-size: 12.5px;
+              font-weight: 500;
+              letter-spacing: 0.18em;
+              text-transform: uppercase;
+              color: #1f1b19;
+              margin: 0 0 44px;
+            "
+          >
+            Projects
+          </h2>
+
+          <div style="display: flex; flex-direction: column; gap: 44px">
+            <div style="display: flex; flex-direction: column; gap: 10px">
+              <a
+                href="https://shop-hound.vercel.app/"
+                target="_blank"
+                rel="noopener"
+                style="
+                  font-family:
+                    &quot;Space Mono&quot;, &quot;JetBrains Mono&quot;,
+                    ui-monospace, monospace;
+                  font-size: 17.5px;
+                  font-weight: 700;
+                  letter-spacing: -0.01em;
+                  color: #ff4438;
+                  width: fit-content;
+                  padding-bottom: 2px;
+                  border-bottom: 1px solid #ffe4e1;
+                "
+                style-hover="color: #1f1b19; border-bottom-color: #1f1b19;"
+                >Shophound</a
+              >
+              <p
+                style="
+                  margin: 0;
+                  font-size: 17px;
+                  line-height: 1.65;
+                  max-width: 34em;
+                  color: #37312e;
+                  text-wrap: pretty;
+                "
+              >
+                An AI copilot that gives Shopify merchants competitive
+                intelligence on their market — built with Mastra, selected for
+                Round 2 of the HiDevs × Mastra hackathon.
+              </p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px">
+              <a
+                href="https://www.leadsfolio.app/"
+                target="_blank"
+                rel="noopener"
+                style="
+                  font-family:
+                    &quot;Space Mono&quot;, &quot;JetBrains Mono&quot;,
+                    ui-monospace, monospace;
+                  font-size: 17.5px;
+                  font-weight: 700;
+                  letter-spacing: -0.01em;
+                  color: #ff4438;
+                  width: fit-content;
+                  padding-bottom: 2px;
+                  border-bottom: 1px solid #ffe4e1;
+                "
+                style-hover="color: #1f1b19; border-bottom-color: #1f1b19;"
+                >LeadsFolio</a
+              >
+              <p
+                style="
+                  margin: 0;
+                  font-size: 17px;
+                  line-height: 1.65;
+                  max-width: 34em;
+                  color: #37312e;
+                  text-wrap: pretty;
+                "
+              >
+                A CRM built for vehicle insurance agents. No database lock-in —
+                all data lives in the user's own Google Sheet.
+              </p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px">
+              <a
+                href="https://www.shoplune.in/"
+                target="_blank"
+                rel="noopener"
+                style="
+                  font-family:
+                    &quot;Space Mono&quot;, &quot;JetBrains Mono&quot;,
+                    ui-monospace, monospace;
+                  font-size: 17.5px;
+                  font-weight: 700;
+                  letter-spacing: -0.01em;
+                  color: #ff4438;
+                  width: fit-content;
+                  padding-bottom: 2px;
+                  border-bottom: 1px solid #ffe4e1;
+                "
+                style-hover="color: #1f1b19; border-bottom-color: #1f1b19;"
+                >Shoplune</a
+              >
+              <p
+                style="
+                  margin: 0;
+                  font-size: 17px;
+                  line-height: 1.65;
+                  max-width: 34em;
+                  color: #37312e;
+                  text-wrap: pretty;
+                "
+              >
+                A perfume brand site, designed and built almost entirely with
+                AI.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2
+            style="
+              font-family: &quot;JetBrains Mono&quot;, ui-monospace, monospace;
+              font-size: 12.5px;
+              font-weight: 500;
+              letter-spacing: 0.18em;
+              text-transform: uppercase;
+              color: #1f1b19;
+              margin: 0 0 32px;
+            "
+          >
+            Contact
+          </h2>
+          <nav
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              gap: 10px 26px;
+              font-size: 17px;
+            "
+          >
+            <a
+              href="https://www.linkedin.com/in/sa-od"
+              target="_blank"
+              rel="noopener"
+              style="color: #ff4438"
+              style-hover="color: #1f1b19;"
+              >LinkedIn</a
+            >
+            <a
+              href="https://github.com/sa-od"
+              target="_blank"
+              rel="noopener"
+              style="color: #ff4438"
+              style-hover="color: #1f1b19;"
+              >GitHub</a
+            >
+            <a
+              href="https://x.com/SahoodCv"
+              target="_blank"
+              rel="noopener"
+              style="color: #ff4438"
+              style-hover="color: #1f1b19;"
+              >Twitter</a
+            >
+            <a
+              href="mailto:sahoodhkr@gmail.com"
+              style="color: #ff4438"
+              style-hover="color: #1f1b19;"
+              >Email</a
+            >
+            <a href="#" style="color: #ff4438" style-hover="color: #1f1b19;"
+              >Resume</a
+            >
+          </nav>
+        </section>
+      </main>
+    </x-dc>
+    <script type="text/x-dc" data-dc-script>
+      class Component extends DCLogic {
+        cursorRef = React.createRef();
+        nameCanvas = React.createRef();
+        trailRef = React.createRef();
+
+        updateTrail() {
+          const wrap = this.trailRef.current;
+          if (!wrap) return;
+          const small = window.innerWidth < 780;
+          wrap.style.display = 'flex';
+          wrap.style.right = small ? '10px' : '22px';
+          wrap.style.gap = small ? '4px' : '5px';
+          const max = document.documentElement.scrollHeight - window.innerHeight;
+          const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+          const blocks = wrap.querySelectorAll('[data-trail]');
+          const n = blocks.length;
+          for (let i = 0; i < n; i++) {
+            const f = Math.min(1, Math.max(0, p * n - i));
+            const b = blocks[i];
+            b.style.width = small ? '4px' : '6px';
+            b.style.height = small ? '4px' : '6px';
+            b.style.background = f > 0 ? '#FF4438' : '#FFE4E1';
+            b.style.opacity = f > 0 ? (0.25 + f * 0.75).toFixed(3) : '1';
+          }
+        }
+
+        buildName(animate) {
+          const cv = this.nameCanvas.current;
+          if (!cv) return;
+          const host = cv.closest('main') || cv.parentElement.parentElement;
+          const hs = getComputedStyle(host);
+          const avail = host.getBoundingClientRect().width - parseFloat(hs.paddingLeft) - parseFloat(hs.paddingRight);
+          const cssW = Math.min(500, Math.max(220, avail));
+          const fontSize = Math.round(cssW / 4.6);
+          const cssH = Math.round(fontSize * 1.25);
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+          cv.style.width = cssW + 'px';
+          cv.style.height = cssH + 'px';
+          cv.width = Math.round(cssW * dpr);
+          cv.height = Math.round(cssH * dpr);
+          const ctx = cv.getContext('2d');
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+          // sample the word into a dot grid
+          const off = document.createElement('canvas');
+          off.width = cssW; off.height = cssH;
+          const octx = off.getContext('2d');
+          octx.fillStyle = '#000';
+          octx.textBaseline = 'middle';
+          octx.font = '700 ' + fontSize + 'px "Space Mono", "JetBrains Mono", ui-monospace, monospace';
+          octx.fillText('Sahood', 0, cssH / 2);
+          const data = octx.getImageData(0, 0, off.width, off.height).data;
+
+          const step = Math.max(4, Math.round(fontSize / 16));
+          const dot = Math.max(1.2, step * 0.72);
+          const dots = [];
+          for (let y = 0; y < cssH; y += step) {
+            for (let x = 0; x < cssW; x += step) {
+              if (data[((y * off.width) + x) * 4 + 3] > 128) {
+                dots.push({ x, y, delay: (x / cssW) * 380 + Math.random() * 520, from: -(cssH + 60 + Math.random() * 260) });
+              }
+            }
+          }
+          this._dots = dots;
+
+          const paint = (t) => {
+            ctx.clearRect(0, 0, cssW, cssH);
+            ctx.fillStyle = '#FF4438';
+            let moving = false;
+            for (let i = 0; i < dots.length; i++) {
+              const d = dots[i];
+              let p = 1;
+              if (t !== null) {
+                p = (t - d.delay) / 620;
+                if (p < 0) { continue; }
+                if (p < 1) { moving = true; } else { p = 1; }
+                p = 1 - Math.pow(1 - p, 3);
+              }
+              ctx.fillRect(d.x, d.y + d.from * (1 - p), dot, dot);
+            }
+            return moving;
+          };
+
+          if (this._raf) cancelAnimationFrame(this._raf);
+          if (!animate) { paint(null); return; }
+          const t0 = performance.now();
+          const tick = (now) => {
+            const t = now - t0;
+            const moving = paint(t);
+            if (moving || t < 900) this._raf = requestAnimationFrame(tick);
+            else paint(null);
+          };
+          this._raf = requestAnimationFrame(tick);
+        }
+
+        componentDidMount() {
+          const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          const start = () => this.buildName(false);
+          if (document.fonts && document.fonts.ready) document.fonts.ready.then(start); else start();
+          this._onResize = () => { this.buildName(false); this.updateTrail(); };
+          window.addEventListener('resize', this._onResize);
+          this._onScroll = () => {
+            if (this._sraf) return;
+            this._sraf = requestAnimationFrame(() => { this._sraf = null; this.updateTrail(); });
+          };
+          window.addEventListener('scroll', this._onScroll, { passive: true });
+          this.updateTrail();
+
+          const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+          if (!fine) return;
+          const el = this.cursorRef.current;
+          if (!el) return;
+          document.body.classList.add('blockcursor');
+
+          let tx = -100, ty = -100, x = -100, y = -100, scale = 1, cur = 1, raf;
+          const size = 12;
+
+          const onMove = (e) => {
+            tx = e.clientX; ty = e.clientY;
+            el.style.opacity = '1';
+            const t = e.target;
+            const interactive = t && t.closest && t.closest('a, button, [role="button"]');
+            scale = interactive ? 1.35 : 1;
+            el.style.background = interactive ? '#FF4438' : '#FF4438';
+          };
+          const onLeave = () => { el.style.opacity = '0'; };
+          const onDown = () => { scale = 0.8; };
+          const onUp = () => { scale = 1; };
+
+          const tick = () => {
+            x += (tx - x) * 0.3;
+            y += (ty - y) * 0.3;
+            cur += (scale - cur) * 0.2;
+            el.style.transform = 'translate3d(' + (x - size / 2) + 'px,' + (y - size / 2) + 'px,0) scale(' + cur + ')';
+            raf = requestAnimationFrame(tick);
+          };
+          raf = requestAnimationFrame(tick);
+
+          window.addEventListener('mousemove', onMove, { passive: true });
+          window.addEventListener('mouseout', onLeave);
+          window.addEventListener('mousedown', onDown);
+          window.addEventListener('mouseup', onUp);
+          this._cleanup = () => {
+            cancelAnimationFrame(raf);
+            window.removeEventListener('mousemove', onMove);
+            window.removeEventListener('mouseout', onLeave);
+            window.removeEventListener('mousedown', onDown);
+            window.removeEventListener('mouseup', onUp);
+            document.body.classList.remove('blockcursor');
+          };
+        }
+
+        componentWillUnmount() {
+          if (this._cleanup) this._cleanup();
+          if (this._raf) cancelAnimationFrame(this._raf);
+          window.removeEventListener('resize', this._onResize);
+          window.removeEventListener('scroll', this._onScroll);
+        }
+
+        renderVals() {
+          return {
+            cursorRef: this.cursorRef,
+            nameCanvas: this.nameCanvas,
+            trailRef: this.trailRef,
+            trail: Array.from({ length: 26 }, (_, i) => i)
+          };
+        }
+      }
+    </script>
   </body>
 </html>
