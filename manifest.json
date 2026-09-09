@@ -4,8 +4,8 @@
   "description": "Sahood's professional portfolio and CV - Software Developer",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#fdfbfa",
-  "theme_color": "#ff4438",
+  "background_color": "#FFF1D1",
+  "theme_color": "#00B7CD",
   "orientation": "portrait-primary",
   "icons": [
     {
