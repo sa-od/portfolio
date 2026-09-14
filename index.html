@@ -1,13 +1,33 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2300B7CD'/%3E%3C/svg%3E"
-    />
+    <link rel="icon" type="image/svg+xml" id="favicon" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- =====================================================================
+         PALETTE — edit these three values to reskin the entire site.
+         Every colour below flows from them: CSS, inline styles, the canvas
+         wordmark, the block cursor, the scroll dots, and the favicon.
+
+         One thing lives outside this file: manifest.json needs the same two
+         values mirrored into "background_color" (= --bg) and
+         "theme_color" (= --accent) for the PWA install UI.
+         ===================================================================== -->
+    <style>
+      :root {
+        --bg: #fff1d1;      /* page background */
+        --accent: #00b7cd;  /* wordmark, links, cursor, scroll progress */
+        --tint: #abded0;    /* link underlines, inactive dots, selection */
+
+        /* text neutrals - darkest to lightest */
+        --ink: #1f1b19;      /* headings, link hover */
+        --body: #2a2624;     /* body copy */
+        --body-alt: #37312e; /* sub-headings */
+        --muted: #6e6763;    /* secondary text */
+        --faint: #8b837e;    /* meta text */
+      }
+    </style>
 
     <!-- Primary Meta Tags -->
     <title>Developer</title>
@@ -59,8 +79,8 @@
     />
 
     <!-- Additional SEO Meta Tags -->
-    <meta name="theme-color" content="#FFF1D1" />
-    <meta name="msapplication-TileColor" content="#00B7CD" />
+    <meta name="theme-color" id="meta-theme" />
+    <meta name="msapplication-TileColor" id="meta-tile" />
     <meta name="apple-mobile-web-app-title" content="Sahood Portfolio" />
 
     <!-- Canonical URL -->
@@ -94,6 +114,28 @@
       }
     </script>
 
+    <script>
+      // Paint the favicon and browser chrome from the palette above, so the
+      // three values in :root stay the only place colours are declared.
+      (function () {
+        var css = getComputedStyle(document.documentElement);
+        var accent = css.getPropertyValue('--accent').trim();
+        var bg = css.getPropertyValue('--bg').trim();
+        var icon = document.getElementById('favicon');
+        if (icon)
+          icon.href =
+            'data:image/svg+xml,' +
+            encodeURIComponent(
+              '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">' +
+                '<rect width="32" height="32" fill="' + accent + '"/></svg>'
+            );
+        var theme = document.getElementById('meta-theme');
+        if (theme) theme.content = bg;
+        var tile = document.getElementById('meta-tile');
+        if (tile) tile.content = accent;
+      })();
+    </script>
+
     <script src="./support.js"></script>
   </head>
   <body>
@@ -115,16 +157,16 @@
           }
           body {
             margin: 0;
-            background: #fff1d1;
-            color: #2a2624;
+            background: var(--bg);
+            color: var(--body);
             font-family: "IBM Plex Sans", system-ui, sans-serif;
           }
           a {
-            color: #2a2624;
+            color: var(--body);
             text-decoration: none;
           }
           a:hover {
-            color: #00b7cd;
+            color: var(--accent);
           }
           html {
             scrollbar-width: none;
@@ -137,8 +179,8 @@
             display: none;
           }
           ::selection {
-            background: #abded0;
-            color: #00b7cd;
+            background: var(--tint);
+            color: var(--accent);
           }
           @media (hover: hover) and (pointer: fine) {
             html,
@@ -164,7 +206,7 @@
           left: 0;
           width: 12px;
           height: 12px;
-          background: #00b7cd;
+          background: var(--accent);
           pointer-events: none;
           z-index: 2147483647;
           opacity: 0;
@@ -192,7 +234,7 @@
         <sc-for list="{{ trail }}" as="i" hint-placeholder-count="26">
           <span
             data-trail=""
-            style="width: 6px; height: 6px; background: #abded0"
+            style="width: 6px; height: 6px; background: var(--tint)"
           ></span>
         </sc-for>
       </div>
@@ -229,7 +271,7 @@
               max-width: 34em;
               margin: 0;
               text-wrap: pretty;
-              color: #37312e;
+              color: var(--body-alt);
             "
           >
             I build things — mostly B2B tools and clean user flows. Lately I've
@@ -246,7 +288,7 @@
               font-weight: 500;
               letter-spacing: 0.18em;
               text-transform: uppercase;
-              color: #1f1b19;
+              color: var(--ink);
               margin: 0 0 44px;
             "
           >
@@ -274,11 +316,11 @@
                     font-size: 17.5px;
                     font-weight: 700;
                     letter-spacing: -0.01em;
-                    color: #00b7cd;
+                    color: var(--accent);
                     padding-bottom: 2px;
-                    border-bottom: 1px solid #abded0;
+                    border-bottom: 1px solid var(--tint);
                   "
-                  style-hover="color: #1f1b19; border-bottom-color: #1f1b19;"
+                  style-hover="color: var(--ink); border-bottom-color: var(--ink);"
                   >Final Apps</a
                 >
                 <span
@@ -286,7 +328,7 @@
                     font-family:
                       &quot;JetBrains Mono&quot;, ui-monospace, monospace;
                     font-size: 12.5px;
-                    color: #8b837e;
+                    color: var(--faint);
                   "
                   >~3.5 years</span
                 >
@@ -296,7 +338,7 @@
                   margin: 0;
                   font-size: 16.5px;
                   line-height: 1.6;
-                  color: #6e6763;
+                  color: var(--muted);
                 "
               >
                 Junior Developer → Senior Developer → CTO
@@ -307,7 +349,7 @@
                   font-size: 17px;
                   line-height: 1.65;
                   max-width: 34em;
-                  color: #37312e;
+                  color: var(--body-alt);
                   text-wrap: pretty;
                 "
               >
@@ -336,11 +378,11 @@
                     font-size: 17.5px;
                     font-weight: 700;
                     letter-spacing: -0.01em;
-                    color: #00b7cd;
+                    color: var(--accent);
                     padding-bottom: 2px;
-                    border-bottom: 1px solid #abded0;
+                    border-bottom: 1px solid var(--tint);
                   "
-                  style-hover="color: #1f1b19; border-bottom-color: #1f1b19;"
+                  style-hover="color: var(--ink); border-bottom-color: var(--ink);"
                   >Checkout Ninja</a
                 >
                 <span
@@ -348,7 +390,7 @@
                     font-family:
                       &quot;JetBrains Mono&quot;, ui-monospace, monospace;
                     font-size: 12.5px;
-                    color: #8b837e;
+                    color: var(--faint);
                   "
                   >Current</span
                 >
@@ -359,7 +401,7 @@
                   font-size: 17px;
                   line-height: 1.65;
                   max-width: 34em;
-                  color: #37312e;
+                  color: var(--body-alt);
                   text-wrap: pretty;
                 "
               >
@@ -377,7 +419,7 @@
               font-weight: 500;
               letter-spacing: 0.18em;
               text-transform: uppercase;
-              color: #1f1b19;
+              color: var(--ink);
               margin: 0 0 44px;
             "
           >
@@ -397,12 +439,12 @@
                   font-size: 17.5px;
                   font-weight: 700;
                   letter-spacing: -0.01em;
-                  color: #00b7cd;
+                  color: var(--accent);
                   width: fit-content;
                   padding-bottom: 2px;
-                  border-bottom: 1px solid #abded0;
+                  border-bottom: 1px solid var(--tint);
                 "
-                style-hover="color: #1f1b19; border-bottom-color: #1f1b19;"
+                style-hover="color: var(--ink); border-bottom-color: var(--ink);"
                 >Shophound</a
               >
               <p
@@ -411,7 +453,7 @@
                   font-size: 17px;
                   line-height: 1.65;
                   max-width: 34em;
-                  color: #37312e;
+                  color: var(--body-alt);
                   text-wrap: pretty;
                 "
               >
@@ -433,12 +475,12 @@
                   font-size: 17.5px;
                   font-weight: 700;
                   letter-spacing: -0.01em;
-                  color: #00b7cd;
+                  color: var(--accent);
                   width: fit-content;
                   padding-bottom: 2px;
-                  border-bottom: 1px solid #abded0;
+                  border-bottom: 1px solid var(--tint);
                 "
-                style-hover="color: #1f1b19; border-bottom-color: #1f1b19;"
+                style-hover="color: var(--ink); border-bottom-color: var(--ink);"
                 >LeadsFolio</a
               >
               <p
@@ -447,7 +489,7 @@
                   font-size: 17px;
                   line-height: 1.65;
                   max-width: 34em;
-                  color: #37312e;
+                  color: var(--body-alt);
                   text-wrap: pretty;
                 "
               >
@@ -468,12 +510,12 @@
                   font-size: 17.5px;
                   font-weight: 700;
                   letter-spacing: -0.01em;
-                  color: #00b7cd;
+                  color: var(--accent);
                   width: fit-content;
                   padding-bottom: 2px;
-                  border-bottom: 1px solid #abded0;
+                  border-bottom: 1px solid var(--tint);
                 "
-                style-hover="color: #1f1b19; border-bottom-color: #1f1b19;"
+                style-hover="color: var(--ink); border-bottom-color: var(--ink);"
                 >Shoplune</a
               >
               <p
@@ -482,7 +524,7 @@
                   font-size: 17px;
                   line-height: 1.65;
                   max-width: 34em;
-                  color: #37312e;
+                  color: var(--body-alt);
                   text-wrap: pretty;
                 "
               >
@@ -501,7 +543,7 @@
               font-weight: 500;
               letter-spacing: 0.18em;
               text-transform: uppercase;
-              color: #1f1b19;
+              color: var(--ink);
               margin: 0 0 32px;
             "
           >
@@ -519,32 +561,32 @@
               href="https://www.linkedin.com/in/sa-od"
               target="_blank"
               rel="noopener"
-              style="color: #00b7cd"
-              style-hover="color: #1f1b19;"
+              style="color: var(--accent)"
+              style-hover="color: var(--ink);"
               >LinkedIn</a
             >
             <a
               href="https://github.com/sa-od"
               target="_blank"
               rel="noopener"
-              style="color: #00b7cd"
-              style-hover="color: #1f1b19;"
+              style="color: var(--accent)"
+              style-hover="color: var(--ink);"
               >GitHub</a
             >
             <a
               href="https://x.com/SahoodCv"
               target="_blank"
               rel="noopener"
-              style="color: #00b7cd"
-              style-hover="color: #1f1b19;"
+              style="color: var(--accent)"
+              style-hover="color: var(--ink);"
               >Twitter</a
             >
             <a
               href="https://mail.google.com/mail/?view=cm&fs=1&to=sahoodhkr@gmail.com"
               target="_blank"
               rel="noopener"
-              style="color: #00b7cd"
-              style-hover="color: #1f1b19;"
+              style="color: var(--accent)"
+              style-hover="color: var(--ink);"
               >Email</a
             >
           </nav>
@@ -557,6 +599,18 @@
         nameCanvas = React.createRef();
         trailRef = React.createRef();
 
+        // Single source of truth: the :root custom properties in <head>.
+        palette() {
+          if (!this._pal) {
+            const css = getComputedStyle(document.documentElement);
+            this._pal = {
+              accent: css.getPropertyValue('--accent').trim(),
+              tint: css.getPropertyValue('--tint').trim(),
+            };
+          }
+          return this._pal;
+        }
+
         updateTrail() {
           const wrap = this.trailRef.current;
           if (!wrap) return;
@@ -568,12 +622,13 @@
           const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
           const blocks = wrap.querySelectorAll('[data-trail]');
           const n = blocks.length;
+          const pal = this.palette();
           for (let i = 0; i < n; i++) {
             const f = Math.min(1, Math.max(0, p * n - i));
             const b = blocks[i];
             b.style.width = small ? '4px' : '6px';
             b.style.height = small ? '4px' : '6px';
-            b.style.background = f > 0 ? '#00B7CD' : '#ABDED0';
+            b.style.background = f > 0 ? pal.accent : pal.tint;
             b.style.opacity = f > 0 ? (0.25 + f * 0.75).toFixed(3) : '1';
           }
         }
@@ -599,6 +654,8 @@
           const off = document.createElement('canvas');
           off.width = cssW; off.height = cssH;
           const octx = off.getContext('2d');
+          // Not a palette colour: this offscreen pass is only sampled for
+          // its alpha channel, so it just has to be fully opaque.
           octx.fillStyle = '#000';
           octx.textBaseline = 'middle';
           octx.font = '700 ' + fontSize + 'px "Space Mono", "JetBrains Mono", ui-monospace, monospace';
@@ -619,7 +676,7 @@
 
           const paint = (t) => {
             ctx.clearRect(0, 0, cssW, cssH);
-            ctx.fillStyle = '#00B7CD';
+            ctx.fillStyle = this.palette().accent;
             let moving = false;
             for (let i = 0; i < dots.length; i++) {
               const d = dots[i];
@@ -665,6 +722,7 @@
           const el = this.cursorRef.current;
           if (!el) return;
           document.body.classList.add('blockcursor');
+          const pal = this.palette();
 
           let tx = -100, ty = -100, x = -100, y = -100, scale = 1, cur = 1, raf;
           const size = 12;
@@ -675,7 +733,7 @@
             const t = e.target;
             const interactive = t && t.closest && t.closest('a, button, [role="button"]');
             scale = interactive ? 1.35 : 1;
-            el.style.background = interactive ? '#00B7CD' : '#00B7CD';
+            el.style.background = pal.accent;
           };
           const onLeave = () => { el.style.opacity = '0'; };
           const onDown = () => { scale = 0.8; };
