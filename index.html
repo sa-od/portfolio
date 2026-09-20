@@ -10,14 +10,16 @@
 
       gtag('config', 'G-K4M9CYLHH6');
     </script>
-    <link rel="icon" type="image/svg+xml" id="favicon" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- =====================================================================
          PALETTE — edit these three values to reskin the entire site.
          Every colour below flows from them: CSS, inline styles, the canvas
-         wordmark, the block cursor, the scroll dots, and the favicon.
+          wordmark, the block cursor, the scroll dots, and the browser
+          theme-color.
 
          One thing lives outside this file: manifest.json needs the same two
          values mirrored into "background_color" (= --bg) and
@@ -39,52 +41,50 @@
     </style>
 
     <!-- Primary Meta Tags -->
-    <title>Developer</title>
-    <meta name="title" content="Sahood - Portfolio & CV | Software Developer" />
+    <title>Sahood | Software Developer</title>
     <meta
       name="description"
-      content="Sahood's professional portfolio and CV. Software developer showcasing skills, experience, and projects. Contact for opportunities."
-    />
-    <meta
-      name="keywords"
-      content="sahood, sahood cv, saho, portfolio, software developer, developer, programmer, cv, resume, web developer"
+      content="Sahood's CV — CTO & software developer. Shipped 6+ Shopify apps (2x Built for Shopify certified). Building checkout tooling and AI agents."
     />
     <meta name="author" content="Sahood" />
     <meta name="robots" content="index, follow" />
-    <meta name="language" content="English" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://sa-od.github.io/portfolio/" />
-    <meta
-      property="og:title"
-      content="Sahood - Portfolio & CV | Software Developer"
-    />
+    <meta property="og:url" content="https://www.saod.dev/" />
+    <meta property="og:title" content="Sahood | Software Developer" />
     <meta
       property="og:description"
-      content="Sahood's professional portfolio and CV. Software developer showcasing skills, experience, and projects."
+      content="Sahood's CV — CTO & software developer. Shipped 6+ Shopify apps (2x Built for Shopify certified). Building checkout tooling and AI agents."
     />
     <meta
       property="og:image"
-      content="https://sa-od.github.io/portfolio/images/sahood-pro.jpg"
+      content="https://www.saod.dev/images/sahood-pro.jpg"
+    />
+    <meta property="og:image:width" content="1908" />
+    <meta property="og:image:height" content="4032" />
+    <meta
+      property="og:image:alt"
+      content="Portrait of Sahood, software developer"
     />
     <meta property="og:site_name" content="Sahood Portfolio" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://sa-od.github.io/portfolio/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.saod.dev/" />
+    <meta name="twitter:title" content="Sahood | Software Developer" />
     <meta
-      property="twitter:title"
-      content="Sahood - Portfolio & CV | Software Developer"
+      name="twitter:description"
+      content="Sahood's CV — CTO & software developer. Shipped 6+ Shopify apps (2x Built for Shopify certified). Building checkout tooling and AI agents."
     />
     <meta
-      property="twitter:description"
-      content="Sahood's professional portfolio and CV. Software developer showcasing skills, experience, and projects."
+      name="twitter:image"
+      content="https://www.saod.dev/images/sahood-pro.jpg"
     />
     <meta
-      property="twitter:image"
-      content="https://sa-od.github.io/portfolio/images/sahood-pro.jpg"
+      name="twitter:image:alt"
+      content="Portrait of Sahood, software developer"
     />
 
     <!-- Additional SEO Meta Tags -->
@@ -93,7 +93,7 @@
     <meta name="apple-mobile-web-app-title" content="Sahood Portfolio" />
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://sa-od.github.io/portfolio/" />
+    <link rel="canonical" href="https://www.saod.dev/" />
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="./manifest.json" />
@@ -102,42 +102,51 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Sahood",
-        "alternateName": ["Saho", "Sahood CV"],
-        "url": "https://sa-od.github.io/portfolio",
-        "image": "https://sa-od.github.io/portfolio/images/sahood-pro.jpg",
-        "description": "Software developer and programmer showcasing professional portfolio and CV",
-        "jobTitle": "Software Developer",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Freelance"
-        },
-        "sameAs": ["https://github.com/sa-od"],
-        "knowsAbout": [
-          "Software Development",
-          "Web Development",
-          "Programming",
-          "Portfolio Development"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "name": "Sahood | Software Developer",
+            "url": "https://www.saod.dev/"
+          },
+          {
+            "@type": "Person",
+            "name": "Sahood",
+            "alternateName": ["Sahood CV", "Saho"],
+            "url": "https://www.saod.dev/",
+            "image": "https://www.saod.dev/images/sahood-pro.jpg",
+            "description": "Sahood's CV: CTO & software developer. Shipped 6+ Shopify apps (2x Built for Shopify certified). Building checkout tooling and AI agents.",
+            "jobTitle": "Chief Technology Officer",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Final Apps",
+              "url": "https://appsfinal.com/"
+            },
+            "sameAs": [
+              "https://github.com/sa-od",
+              "https://www.linkedin.com/in/sa-od",
+              "https://x.com/SahoodCv"
+            ],
+            "knowsAbout": [
+              "Shopify App Development",
+              "B2B SaaS",
+              "AI Agents",
+              "Checkout Tooling",
+              "Web Development"
+            ]
+          }
         ]
       }
     </script>
 
     <script>
-      // Paint the favicon and browser chrome from the palette above, so the
-      // three values in :root stay the only place colours are declared.
+      // Paint the browser chrome from the palette above, so the
+      // values in :root stay the only place colours are declared.
+      // (The favicon is now a static ./favicon.svg file so search
+      // engines can pick it up for listings.)
       (function () {
         var css = getComputedStyle(document.documentElement);
-        var accent = css.getPropertyValue('--accent').trim();
         var bg = css.getPropertyValue('--bg').trim();
-        var icon = document.getElementById('favicon');
-        if (icon)
-          icon.href =
-            'data:image/svg+xml,' +
-            encodeURIComponent(
-              '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">' +
-                '<rect width="32" height="32" fill="' + accent + '"/></svg>'
-            );
+        var accent = css.getPropertyValue('--accent').trim();
         var theme = document.getElementById('meta-theme');
         if (theme) theme.content = bg;
         var tile = document.getElementById('meta-tile');
@@ -260,6 +269,17 @@
             aria-label="Sahood"
             style="margin: 0; font-size: 0; line-height: 0"
           >
+            <span
+              style="
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                overflow: hidden;
+                clip: rect(0 0 0 0);
+                white-space: nowrap;
+              "
+              >Sahood — Software Developer CV and Portfolio</span
+            >
             <canvas
               ref="{{ nameCanvas }}"
               style="
@@ -599,6 +619,15 @@
               >Email</a
             >
           </nav>
+          <p
+            style="
+              margin: 56px 0 0;
+              font-size: 13px;
+              color: var(--faint);
+            "
+          >
+            © 2026 Sahood — Software developer CV & portfolio.
+          </p>
         </section>
       </main>
     </x-dc>
