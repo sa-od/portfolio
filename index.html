@@ -27,16 +27,17 @@
          ===================================================================== -->
     <style>
       :root {
-        --bg: #ece7e2;      /* page background */
-        --accent: #4a7766;  /* wordmark, links, cursor, scroll progress */
-        --tint: #c5ccc4;    /* link underlines, inactive dots, selection */
+        --bg: #294075;      /* page background */
+        --accent: #fdeea8;  /* links, link hover inherits via --ink */
+        --tint: #fdeea8;    /* link underlines, inactive dots, selection */
+        --cube: #fdeea8;    /* dotted wordmark, block cursor, scroll progress */
 
-        /* text neutrals - darkest to lightest */
-        --ink: #1f1b19;      /* headings, link hover */
-        --body: #2a2624;     /* body copy */
-        --body-alt: #37312e; /* sub-headings */
-        --muted: #6e6763;    /* secondary text */
-        --faint: #8b837e;    /* meta text */
+        /* text neutrals - brightest to dimmest (dark-bg two-tone cream) */
+        --ink: #fdeea8;      /* headings, link hover */
+        --body: #fdeea8;     /* body copy */
+        --body-alt: #fdeea8; /* sub-headings */
+        --muted: #b6ab79;    /* secondary text */
+        --faint: #b6ab79;    /* meta text */
       }
     </style>
 
@@ -224,7 +225,7 @@
           left: 0;
           width: 12px;
           height: 12px;
-          background: var(--accent);
+          background: var(--cube);
           pointer-events: none;
           z-index: 2147483647;
           opacity: 0;
@@ -644,6 +645,8 @@
             this._pal = {
               accent: css.getPropertyValue('--accent').trim(),
               tint: css.getPropertyValue('--tint').trim(),
+              cube: css.getPropertyValue('--cube').trim() ||
+                css.getPropertyValue('--accent').trim(),
             };
           }
           return this._pal;
@@ -666,7 +669,7 @@
             const b = blocks[i];
             b.style.width = small ? '4px' : '6px';
             b.style.height = small ? '4px' : '6px';
-            b.style.background = f > 0 ? pal.accent : pal.tint;
+            b.style.background = f > 0 ? pal.cube : pal.tint;
             b.style.opacity = f > 0 ? (0.25 + f * 0.75).toFixed(3) : '1';
           }
         }
@@ -714,7 +717,7 @@
 
           const paint = (t) => {
             ctx.clearRect(0, 0, cssW, cssH);
-            ctx.fillStyle = this.palette().accent;
+            ctx.fillStyle = this.palette().cube;
             let moving = false;
             for (let i = 0; i < dots.length; i++) {
               const d = dots[i];
@@ -771,7 +774,7 @@
             const t = e.target;
             const interactive = t && t.closest && t.closest('a, button, [role="button"]');
             scale = interactive ? 1.35 : 1;
-            el.style.background = pal.accent;
+            el.style.background = pal.cube;
           };
           const onLeave = () => { el.style.opacity = '0'; };
           const onDown = () => { scale = 0.8; };
